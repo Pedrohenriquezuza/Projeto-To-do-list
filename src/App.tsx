@@ -1,9 +1,7 @@
-
 export default function App() {
-  
   return (
     <>
-    Olá Mundo
+      <div className="text-white bg-red-800">Olá Mundo</div>
     </>
-  )
+  );
 }
