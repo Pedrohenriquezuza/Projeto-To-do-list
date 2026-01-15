@@ -24,19 +24,18 @@ export const badgeVariants = cva(
 export const badgeTextVariants = cva("", {
   variants: {
     variant: {
-        primary: "text-green-dark",
-        secondary: "text-pink-dark"
+      primary: "text-green-dark",
+      secondary: "text-pink-dark",
     },
   },
   defaultVariants: {
-    variant: "primary"
-  }
+    variant: "primary",
+  },
 });
 
 interface BadgeProps
   extends React.ComponentProps<"div">,
     VariantProps<typeof badgeVariants> {}
-
 
 export default function Badge({
   variant,
@@ -46,8 +45,10 @@ export default function Badge({
   ...props
 }: BadgeProps) {
   return (
-    <div className={badgeVariants({variant,size, className})} {...props}>
-      <Text variant="body-sm-bold" className={badgeTextVariants({variant})}>{children}</Text>
+    <div className={badgeVariants({ variant, size, className })} {...props}>
+      <Text variant="body-sm-bold" className={badgeTextVariants({ variant })}>
+        {children}
+      </Text>
     </div>
   );
 }
