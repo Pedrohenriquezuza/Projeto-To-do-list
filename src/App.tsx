@@ -9,6 +9,7 @@ import XIcon from "./assets/icons/x.svg?react";
 import Icon from "./components/Icon";
 import Badge from "./components/Badge";
 import Button from "./components/Button";
+import ButtonIcon from "./components/Button-icons";
 
 export default function App() {
   return (
@@ -40,6 +41,13 @@ export default function App() {
 
       <div>
         <Button icon={PlusIcon}>Nova tarefa</Button>
+      </div>
+
+      <div className="flex gap-1">
+        <ButtonIcon icon={TrashIcon} />
+        <ButtonIcon icon={TrashIcon} variant="secondary"/>
+        <ButtonIcon icon={TrashIcon} variant="tertiary"/>
+        
       </div>
     </div>
   );
