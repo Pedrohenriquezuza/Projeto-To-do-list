@@ -3,15 +3,21 @@ import React from "react";
 import Icon from "./Icon";
 
 import CheckIcon from "../assets/icons/check.svg?react";
+import Skeleton from "./skeleton";
 
 export const InputCheckBoxWrapperVariants = cva(`
     inline-flex items-center justify-center  relative group
     `);
 
 export const inputCheckBoxVariants = cva(
-  `cursor-pointer appearance-none peer flex items-center justify-center border-2 border-solid transition overflow-hidden border-green-base hover:border-green-dark hover:bg-green-dark/20 checked:border-green-base checked:bg-green-base group-hover:checked:border-green-dark group-hover:checked:bg-green-dark`,
+  `cursor-pointer appearance-none peer flex items-center justify-center transition overflow-hidden `,
   {
     variants: {
+      variant: {
+        none: "",
+        default: ` border-2 border-solid border-green-base hover:border-green-dark hover:bg-green-dark/20 checked:border-green-base checked:bg-green-base group-hover:checked:border-green-dark group-hover:checked:bg-green-dark
+        `
+      },
       size: {
         md: "w-5 h-5 rounded-sm",
       },
@@ -20,6 +26,7 @@ export const inputCheckBoxVariants = cva(
       },
     },
     defaultVariants: {
+      variant: "default",
       size: "md",
       disabled: false,
     },
@@ -45,19 +52,26 @@ export const inputCheckBoxIconVariants = cva(
 interface InputCheckBoxProps
   extends
     VariantProps<typeof inputCheckBoxVariants>,
-    Omit<React.ComponentProps<"input">, "size" | "disabled"> {}
+    Omit<React.ComponentProps<"input">, "size" | "disabled"> {
+  loading?: boolean;
+}
 
 export default function InputCheckBox({
+  variant,
   size,
   disabled,
+  loading,
   className,
   ...props
 }: InputCheckBoxProps) {
+  if (loading) {
+    return <Skeleton rounded="sm" className={inputCheckBoxVariants({variant: "none", size})}/>;
+  }
   return (
     <label className={InputCheckBoxWrapperVariants({ className })}>
       <input
         type="checkbox"
-        className={inputCheckBoxVariants({ size, disabled })}
+        className={inputCheckBoxVariants({variant, size, disabled })}
         {...props}
       />
       <Icon className={inputCheckBoxIconVariants({ size })} svg={CheckIcon} />
