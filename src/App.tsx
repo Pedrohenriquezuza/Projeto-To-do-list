@@ -11,9 +11,13 @@ import Badge from "./components/Badge";
 import Button from "./components/Button";
 import ButtonIcon from "./components/Button-icons";
 import InputText from "./components/Input-text";
+import InputCheckBox from "./components/Input-checkbox";
+import Card from "./components/Card";
+import Container from "./components/Container";
 
 export default function App() {
   return (
+    <Container>
     <div className="grid gap-10">
       <div className="flex flex-col gap-2">
         <Text variant="body-sm-bold" className="text-pink-base">
@@ -53,6 +57,15 @@ export default function App() {
       <div>
         <InputText />
       </div>
+
+      <div>
+        <InputCheckBox />
+      </div>
+
+      <div>
+        <Card size="md">Olá Mundo</Card>
+      </div>
     </div>
+    </Container>
   );
 }
