@@ -9,11 +9,8 @@ export default function TasksList() {
 
   const { prepareTask } = useTask();
 
-
-  console.log(tasks);
-
   function handleNewTask() {
-    prepareTask()
+    prepareTask();
   }
   return (
     <>
@@ -23,10 +20,9 @@ export default function TasksList() {
         </Button>
       </section>
       <section className="space-y-2">
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
+        {tasks.map((task) => (
+          <TaskItem key={task.id} task={task} />
+        ))}
       </section>
     </>
   );
