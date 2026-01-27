@@ -5,14 +5,28 @@ export default function useTask() {
   const [tasks, setTasks] = useLocalStorage<Task[]>(TASKS_KEY, []);
 
   function prepareTask() {
-    setTasks([...tasks, {
+    setTasks([
+      ...tasks,
+      {
         id: Math.random().toString(36).substring(2, 9),
         title: "",
-        state: TaskState.Creating
-        }])
+        state: TaskState.Creating,
+      },
+    ]);
+  }
+
+  function updateTask(id: string, payload: { title: Task["title"] }) {
+    setTasks(
+      tasks.map((task) =>
+        task.id === id
+          ? { ...task, state: TaskState.created, ...payload }
+          : task,
+      ),
+    );
   }
 
   return {
     prepareTask,
-  }
+    updateTask,
+  };
 }
