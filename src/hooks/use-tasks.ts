@@ -1,12 +1,33 @@
 import useLocalStorage from "use-local-storage";
-import { TASKS_KEY, type Task } from "../models/task";
+import { TASKS_KEY, TaskState, type Task } from "../models/task";
+import React from "react";
+import { delay } from "../helpers/utils";
 
 export default function useTasks() {
-  const [tasks] = useLocalStorage<Task[]>(TASKS_KEY, []);
+  const [tasksData] = useLocalStorage<Task[]>(TASKS_KEY, []);
+  const [tasks, setTasks] = React.useState<Task[]>([]);
+  const [isLoadingTasks, setIsLoadingTasks] = React.useState(true);
 
+  async function fetchTasks() {
+    console.time("Carregando tarefas...");
+    if (isLoadingTasks) {
+      await delay(900);
+      setIsLoadingTasks(false);
+    }
+
+    setTasks(tasksData);
+    console.timeEnd("Carregando tarefas...");
+  }
+
+  React.useEffect(() => {
+    fetchTasks();
+  }, [tasksData]);
   return {
     tasks,
-    tasksCount: tasks.length,
-    concludedTasksCount: tasks.filter((task) => task.concluded).length
-  }
+    createdTasksCount: tasks.filter((task) => task.state === TaskState.Created)
+      .length,
+
+    concludedTasksCount: tasks.filter((task) => task.concluded).length,
+    isLoadingTasks,
+  };
 }
