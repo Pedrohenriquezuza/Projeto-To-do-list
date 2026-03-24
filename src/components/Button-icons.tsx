@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import Icon from "./Icon";
-import Skeleton from "./skeleton";
+import Skeleton from "./Skeleton";
 import SpinnerIcon from "../assets/icons/spinner.svg?react";
 export const buttonIconVariant = cva(
   `inline-flex items-center justify-center cursor-pointer transition group`,

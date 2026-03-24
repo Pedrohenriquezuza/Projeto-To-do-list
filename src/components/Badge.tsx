@@ -1,7 +1,7 @@
 import type React from "react";
 import Text from "./Text";
 import { cva, cx, type VariantProps } from "class-variance-authority";
-import Skeleton from "./skeleton";
+import Skeleton from "./Skeleton";
 
 export const badgeVariants = cva(
   "inline-flex items-center justify-center rounded-full",

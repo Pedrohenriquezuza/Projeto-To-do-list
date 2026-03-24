@@ -3,7 +3,7 @@ import React from "react";
 import Icon from "./Icon";
 
 import CheckIcon from "../assets/icons/check.svg?react";
-import Skeleton from "./skeleton";
+import Skeleton from "./Skeleton";
 
 export const InputCheckBoxWrapperVariants = cva(`
     inline-flex items-center justify-center  relative group
@@ -16,7 +16,7 @@ export const inputCheckBoxVariants = cva(
       variant: {
         none: "",
         default: ` border-2 border-solid border-green-base hover:border-green-dark hover:bg-green-dark/20 checked:border-green-base checked:bg-green-base group-hover:checked:border-green-dark group-hover:checked:bg-green-dark
-        `
+        `,
       },
       size: {
         md: "w-5 h-5 rounded-sm",
@@ -65,13 +65,18 @@ export default function InputCheckBox({
   ...props
 }: InputCheckBoxProps) {
   if (loading) {
-    return <Skeleton rounded="sm" className={inputCheckBoxVariants({variant: "none", size})}/>;
+    return (
+      <Skeleton
+        rounded="sm"
+        className={inputCheckBoxVariants({ variant: "none", size })}
+      />
+    );
   }
   return (
     <label className={InputCheckBoxWrapperVariants({ className })}>
       <input
         type="checkbox"
-        className={inputCheckBoxVariants({variant, size, disabled })}
+        className={inputCheckBoxVariants({ variant, size, disabled })}
         {...props}
       />
       <Icon className={inputCheckBoxIconVariants({ size })} svg={CheckIcon} />
