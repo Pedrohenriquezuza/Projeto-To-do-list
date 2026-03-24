@@ -11,7 +11,7 @@ import InputText from "../components/Input-text";
 import { TaskState, type Task } from "../models/task";
 import { cx } from "class-variance-authority";
 import useTask from "../hooks/use-task";
-import Skeleton from "../components/skeleton";
+import Skeleton from "../components/Skeleton";
 
 interface TaskItemProps {
   task: Task;

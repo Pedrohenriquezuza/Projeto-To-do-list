@@ -6,7 +6,7 @@ import Container from "../components/Container";
 import Icon from "../components/Icon";
 import InputCheckBox from "../components/Input-checkbox";
 import InputText from "../components/Input-text";
-import Skeleton from "../components/skeleton";
+import Skeleton from "../components/Skeleton";
 import Text from "../components/Text"
 import TrashIcon from "../assets/icons/trash.svg?react"
 import CheckIcon from "../assets/icons/check.svg?react"
