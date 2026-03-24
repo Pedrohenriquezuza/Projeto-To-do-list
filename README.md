@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# ✅ To-do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<img width="1214" height="745" alt="image" src="https://github.com/user-attachments/assets/e9bd1712-5025-4493-b8ac-61b875fe20f5" />
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Aplicação de gerenciamento de tarefas desenvolvida com foco em **componentização, organização de código e reutilização de UI**.
 
-## React Compiler
+Este projeto foi criado com React + TypeScript, aplicando conceitos de arquitetura front-end moderna.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## 🚀 Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React
+- TypeScript
+- Vite
+- TailwindCSS
+- SVG como React Component
+- Hooks personalizados
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🧠 Conceitos Aplicados
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Componentização avançada
+- Design System próprio
+- Separação por camadas
+- Reutilização de componentes
+- Estado e lógica isolados em hooks
+- Organização escalável de projeto
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
+### 📦 components
+Componentes reutilizáveis como:
+- Button
+- Badge
+- Card
+- InputText
+- InputCheckBox
+- Icon
+- Skeleton
+- Text
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🏗 core-components
+Componentes estruturais da aplicação:
+- Header
+- Footer
+- Tasks-list
+- Tasks-summary
+- Task-item
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### 🪝 hooks
+- use-task
+- use-tasks
+
+### 📁 models
+- Modelagem de tipos das tarefas
+
+---
+
+## ✨ Funcionalidades
+
+- Criar nova tarefa
+- Marcar como concluída
+- Remover tarefa
+- Exibir contador de tarefas
+- Estado de loading
+- Componentes com variações (variants)
+- Ícones SVG como React Components
+
+---
+
+## 🖼 Preview
+
+<!-- Coloque aqui a imagem do projeto -->
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/331c9b98-22f2-4707-93a3-5ecc1e6e1b4b" width="913" height="521" alt="image">
+</p>
